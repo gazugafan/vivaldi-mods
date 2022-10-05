@@ -62,13 +62,13 @@
 		}
 		
 		//get current Vivaldi theme variables...
-		let colorFg = document.documentElement.style.getPropertyValue('--colorFg');
-		let colorBg = document.documentElement.style.getPropertyValue('--colorBg');
-		let colorBgDark = document.documentElement.style.getPropertyValue('--colorBgDark');
-		let colorBorder = document.documentElement.style.getPropertyValue('--colorBorder');
-		let colorHighlightBg = document.documentElement.style.getPropertyValue('--colorHighlightBg');
-		let colorHighlightBgDark = document.documentElement.style.getPropertyValue('--colorHighlightBgDark');
-		let colorBorderIntense = document.documentElement.style.getPropertyValue('--colorBorderIntense');
+		let colorFg = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorFg');
+		let colorBg = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorBg');
+		let colorBgDark = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorBgDark');
+		let colorBorder = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorBorder');
+		let colorHighlightBg = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorHighlightBg');
+		let colorHighlightBgDark = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorHighlightBgDark');
+		let colorBorderIntense = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorBorderIntense');
 		let colorFgRGB = hexToRGB(colorFg);
 		let colorBgRGB = hexToRGB(colorBg);
 		
