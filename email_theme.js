@@ -63,14 +63,17 @@
 		
 		//get current Vivaldi theme variables...
 		let colorFg = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorFg');
+		let colorFgIntense = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorFgIntense');
 		let colorBg = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorBg');
 		let colorBgDark = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorBgDark');
+		let colorBgIntense = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorBgIntense');
 		let colorBorder = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorBorder');
 		let colorHighlightBg = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorHighlightBg');
 		let colorHighlightBgDark = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorHighlightBgDark');
 		let colorBorderIntense = getComputedStyle(document.querySelector("#browser")).getPropertyValue('--colorBorderIntense');
 		let colorFgRGB = hexToRGB(colorFg);
 		let colorBgRGB = hexToRGB(colorBg);
+		let colorBgIntenseRGB = hexToRGB(colorBgIntense);
 		
 		//inject/update CSS overrides into the webview...
 		webview.insertCSS({
@@ -80,7 +83,7 @@ html:not(.vivaldi-email-thememod-off) img {
 }
 html:not(.vivaldi-email-thememod-off) * {
 	color: ${colorFg} !important;
-	background-color: ${colorBg} !important;
+	background-color: ${colorBgIntense} !important;
 	border-color: ${colorBorder} !important;
 }
 
@@ -94,14 +97,14 @@ html:not(.vivaldi-email-thememod-off) a:hover, html:not(.vivaldi-email-thememod-
 
 /* The rest is a stupid amount of work to style the scrollbars, with arrows for buttons. Might not be appropriate on mac? */
 html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar { width:16px; }
-html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-track { background:${colorBg}; background-clip:border-box; }
+html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-track { background:${colorBgIntense}; background-clip:border-box; }
 html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-thumb { background:${colorBorder}; background-clip:padding-box; }
 html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-thumb:hover { background:${colorBorderIntense}; }
 html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-thumb:active { background:${colorFg}; }
-html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-corner { background:${colorBg}; }
+html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-corner { background:${colorBgIntense}; }
 
 html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-button {
-	background-color:${colorBg};
+	background-color:${colorBgIntense};
 	display:flex;
 	width:16px;
 	height:16px;
@@ -118,10 +121,10 @@ html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-button:vertical:decrem
 	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(${colorFgRGB.r}, ${colorFgRGB.g}, ${colorFgRGB.b})'><polygon points='50,00 0,50 100,50'/></svg>");
 }
 html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-button:vertical:increment:active {
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(${colorBgRGB.r}, ${colorBgRGB.g}, ${colorBgRGB.b})'><polygon points='0,0 100,0 50,50'/></svg>");
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(${colorBgIntenseRGB.r}, ${colorBgIntenseRGB.g}, ${colorBgIntenseRGB.b})'><polygon points='0,0 100,0 50,50'/></svg>");
 }
 html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-button:vertical:decrement:active {
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(${colorBgRGB.r}, ${colorBgRGB.g}, ${colorBgRGB.b})'><polygon points='50,00 0,50 100,50'/></svg>");
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(${colorBgIntenseRGB.r}, ${colorBgIntenseRGB.g}, ${colorBgIntenseRGB.b})'><polygon points='50,00 0,50 100,50'/></svg>");
 }
 html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-button:horizontal {
 	background-position:5.5px center;
@@ -133,10 +136,10 @@ html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-button:horizontal:decr
 	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(${colorFgRGB.r}, ${colorFgRGB.g}, ${colorFgRGB.b})'><polygon points='0,50 50,0 50,100'/></svg>");
 }
 html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-button:horizontal:increment:active {
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(${colorBgRGB.r}, ${colorBgRGB.g}, ${colorBgRGB.b})'><polygon points='50,50 0,100 0,0'/></svg>");
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(${colorBgIntenseRGB.r}, ${colorBgIntenseRGB.g}, ${colorBgIntenseRGB.b})'><polygon points='50,50 0,100 0,0'/></svg>");
 }
 html:not(.vivaldi-email-thememod-off) ::-webkit-scrollbar-button:horizontal:decrement:active {
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(${colorBgRGB.r}, ${colorBgRGB.g}, ${colorBgRGB.b})'><polygon points='0,50 50,0 50,100'/></svg>");
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(${colorBgIntenseRGB.r}, ${colorBgIntenseRGB.g}, ${colorBgIntenseRGB.b})'><polygon points='0,50 50,0 50,100'/></svg>");
 }
 			`,
 			runAt: 'document_start'
